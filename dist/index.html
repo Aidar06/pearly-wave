@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#eaf2f5">
+  <meta name="description" content="Свадебное приглашение Бекзата и Алины">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Жемчужная волна — свадебное приглашение">
+  <meta property="og:description" content="Будем счастливы разделить этот день вместе">
+  <title>Бекзат & Алина — свадебное приглашение</title>
+  <link rel="preload" href="assets/pearl-hero.jpg" as="image">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div id="dataError" class="data-error" hidden><span data-i18n="loadError">Не удалось загрузить данные</span><button id="dataRetry" type="button" data-i18n="retry">Повторить</button></div>
+
+  <div class="language-menu" id="languageToggle" aria-label="Выбор языка">
+    <button class="language-menu__toggle" type="button" aria-expanded="false" aria-label="Выбрать язык"><span class="language-menu__current">RU</span></button>
+    <div class="language-menu__panel" role="group"><button type="button" data-lang="ru">RU</button><button type="button" data-lang="ky">KG</button><button type="button" data-lang="kk">KZ</button></div>
+  </div>
+
+  <div class="site-shell">
+    <header class="hero" id="top">
+      <img class="hero__media" id="heroMedia" src="assets/pearl-hero.jpg" alt="Перламутровая раковина у спокойного озера" fetchpriority="high">
+      <div class="hero__veil"></div>
+      <div class="hero__copy">
+        <p class="eyebrow" data-i18n="invitation">ПРИГЛАШЕНИЕ НА СВАДЬБУ</p>
+        <h1 class="hero__names"><span id="heroFirst">Бекзат</span><i data-i18n="and">и</i><span id="heroSecond">Алина</span></h1>
+        <div class="hero__date"><span id="heroDay">12</span><b></b><span id="heroMonth">ИЮНЯ</span><b></b><span id="heroYear">2027</span></div>
+      </div>
+      <a class="scroll-cue" href="#story"><span data-i18n="scroll">ЛИСТАЙТЕ ВНИЗ</span><i>↓</i></a>
+    </header>
+
+    <div class="pearl-seam" aria-hidden="true"><img src="assets/pearl-divider.png" alt=""></div>
+
+    <main>
+      <section class="story fluid-section" id="story">
+        <span class="bubble bubble--one" aria-hidden="true"></span><span class="bubble bubble--two" aria-hidden="true"></span>
+        <article class="glass-shape story__letter reveal">
+          <p class="section-mark">01</p>
+          <p class="eyebrow" data-i18n="dear">ДОРОГИЕ РОДНЫЕ И ДРУЗЬЯ</p>
+          <h2 id="welcomeTitle">Дорогие родные и друзья</h2>
+          <p id="welcomeText">Есть моменты, которые хочется сохранить навсегда. Будем счастливы разделить с вами этот день.</p>
+          <p class="signature" id="hostsText">С любовью, Бекзат и Алина</p>
+        </article>
+
+        <article class="calendar-orbit reveal">
+          <div class="calendar-orbit__halo"></div>
+          <p class="eyebrow" data-i18n="dateTitle">НАША ДАТА</p>
+          <h2 id="calendarTitle">Июнь <i>2027</i></h2>
+          <div class="calendar"><div class="calendar__week" id="calendarWeek"></div><div class="calendar__days" id="calendarDays"></div></div>
+          <button class="link-button" id="calendarDownload" type="button"><span data-i18n="addCalendar">Добавить в календарь</span> ↗</button>
+        </article>
+      </section>
+
+      <section class="wish-wave fluid-section" id="wishBlock">
+        <div class="wish-wave__inner reveal"><span class="shell-mark" aria-hidden="true">◜</span><p class="eyebrow" data-i18n="wishLabel">ОТ НАС</p><h2 id="wishBlockTitle">Наше маленькое пожелание</h2><p id="wishBlockText"></p></div>
+      </section>
+
+      <section class="program fluid-section" id="program">
+        <div class="section-heading reveal"><p class="section-mark">02</p><p class="eyebrow" data-i18n="program">ПРОГРАММА ДНЯ</p><h2 data-i18n="programTitle">Волна за волной —<br><i>к нашему вечеру</i></h2></div>
+        <svg class="timeline-path" viewBox="0 0 420 760" preserveAspectRatio="none" aria-hidden="true"><path d="M82 20 C345 85 347 190 120 230 C-20 260 42 374 262 398 C452 420 420 558 196 590 C42 612 36 700 322 742"/></svg>
+        <ol class="event-list" id="eventList"></ol>
+      </section>
+
+      <section class="venue fluid-section" id="venue">
+        <figure class="venue__picture reveal"><img src="assets/pearl-venue.jpg" alt="Стеклянный павильон у воды" loading="lazy"></figure>
+        <article class="venue__glass reveal">
+          <p class="section-mark">03</p><p class="eyebrow" data-i18n="venue">МЕСТО ПРОВЕДЕНИЯ</p>
+          <p class="venue__type" id="venueType">Банкетный павильон</p><h2 id="venueName">Glass Bay Pavilion</h2><p id="venueAddress">г. Бишкек, ул. Набережная, 10</p>
+          <div class="map-buttons"><a id="twoGisLink" target="_blank" rel="noopener">2GIS ↗</a><a id="googleMapLink" target="_blank" rel="noopener">Google Maps ↗</a></div>
+        </article>
+      </section>
+
+      <section class="rsvp fluid-section" id="rsvp">
+        <div class="rsvp__pearl pearl--a" aria-hidden="true"></div><div class="rsvp__pearl pearl--b" aria-hidden="true"></div>
+        <article class="rsvp__glass reveal">
+          <p class="section-mark">04</p><p class="eyebrow">RSVP</p><h2 data-i18n="rsvpTitle">Будете ли вы<br><i>с нами?</i></h2><p class="rsvp__intro" data-i18n="rsvpText">Пожалуйста, сообщите о вашем решении.</p>
+          <form id="rsvpForm">
+            <label class="field"><span data-i18n="nameLabel">ВАШЕ ИМЯ</span><input id="guestName" name="name" autocomplete="name" required placeholder="Имя"></label>
+            <fieldset><legend data-i18n="attendLabel">ВЫ СМОЖЕТЕ ПРИЙТИ?</legend><label class="choice"><input type="radio" name="attending" value="yes" checked><span data-i18n="yes">С радостью буду!</span></label><label class="choice"><input type="radio" name="attending" value="no"><span data-i18n="no">К сожалению, не получится</span></label></fieldset>
+            <label class="field" id="guestCountWrap"><span data-i18n="countLabel">КОЛИЧЕСТВО ГОСТЕЙ</span><select id="guestCount"></select></label>
+            <label class="field" id="guestWishField"><span data-i18n="wishInput">ПОЖЕЛАНИЕ</span><textarea id="guestWish" rows="3" placeholder="Ваши тёплые слова"></textarea></label>
+            <button class="submit-button" id="submitRsvp" type="submit"><span data-i18n="send">ПОДТВЕРДИТЬ ПРИСУТСТВИЕ</span><b>→</b></button>
+            <p class="form-status" id="formStatus" aria-live="polite"></p>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <footer><img src="assets/pearl-divider.png" alt="" loading="lazy"><p data-i18n="waiting">С ЛЮБОВЬЮ ЖДЁМ ВАС</p><h2><span id="footerFirst">Бекзат</span><i>&</i><span id="footerSecond">Алина</span></h2><p id="footerDate">12 июня 2027</p></footer>
+  </div>
+</body>
+</html>
