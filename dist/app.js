@@ -4,12 +4,12 @@ const $=(selector,root=document)=>root.querySelector(selector);
 const $$=(selector,root=document)=>[...root.querySelectorAll(selector)];
 const validMapUrl=value=>{try{const url=new URL(String(value||''));return ['http:','https:'].includes(url.protocol)?url.href:''}catch{return''}};
 const copy={
-  ru:{invitation:'ПРИГЛАШЕНИЕ НА СВАДЬБУ',and:'и',scroll:'ЛИСТАЙТЕ ВНИЗ',dear:'ДОРОГИЕ РОДНЫЕ И ДРУЗЬЯ',dateTitle:'НАША ДАТА',addCalendar:'Добавить в календарь',wishLabel:'ОТ НАС',program:'ПРОГРАММА ДНЯ',programTitle:'Волна за волной —<br><i>к нашему вечеру</i>',venue:'МЕСТО ПРОВЕДЕНИЯ',rsvpTitle:'Будете ли вы<br><i>с нами?</i>',rsvpText:'Пожалуйста, сообщите о вашем решении.',nameLabel:'ВАШЕ ИМЯ',attendLabel:'ВЫ СМОЖЕТЕ ПРИЙТИ?',yes:'С радостью буду!',no:'К сожалению, не получится',countLabel:'КОЛИЧЕСТВО ГОСТЕЙ',wishInput:'ПОЖЕЛАНИЕ',send:'ПОДТВЕРДИТЬ ПРИСУТСТВИЕ',waiting:'С ЛЮБОВЬЮ ЖДЁМ ВАС',sent:'Спасибо! Ваш ответ сохранён.',failed:'Не удалось сохранить ответ.',loading:'Сохраняем…',loadError:'Не удалось загрузить данные',retry:'Повторить',week:['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']},
-  ky:{invitation:'ҮЙЛӨНҮҮ ТОЮНА ЧАКЫРУУ',and:'жана',scroll:'ТӨМӨН ЖЫЛДЫРЫҢЫЗ',dear:'УРМАТТУУ ТУУГАНДАР ЖАНА ДОСТОР',dateTitle:'БИЗДИН КҮН',addCalendar:'Календарга кошуу',wishLabel:'БИЗДЕН',program:'КҮНДҮН ПРОГРАММАСЫ',programTitle:'Толкун артынан толкун —<br><i>биздин кечке</i>',venue:'ӨТКӨРҮҮ ЖЕРИ',rsvpTitle:'Биз менен<br><i>болосузбу?</i>',rsvpText:'Чечимиңизди билдирип коюңуз.',nameLabel:'АТЫҢЫЗ',attendLabel:'КЕЛЕ АЛАСЫЗБЫ?',yes:'Кубаныч менен келем!',no:'Тилекке каршы, келе албайм',countLabel:'КОНОКТОРДУН САНЫ',wishInput:'КААЛОО-ТИЛЕК',send:'КАТЫШУУНУ ЫРАСТОО',waiting:'СҮЙҮҮ МЕНЕН КҮТӨБҮЗ',sent:'Рахмат! Жообуңуз сакталды.',failed:'Жооп сакталган жок.',loading:'Сакталууда…',loadError:'Маалымат жүктөлгөн жок',retry:'Кайталоо',week:['ДШ','ШШ','ШР','БШ','ЖМ','ИШ','ЖК']},
-  kk:{invitation:'ҮЙЛЕНУ ТОЙЫНА ШАҚЫРУ',and:'және',scroll:'ТӨМЕН ЖЫЛЖЫТЫҢЫЗ',dear:'ҚҰРМЕТТІ ТУЫСТАР МЕН ДОСТАР',dateTitle:'БІЗДІҢ КҮН',addCalendar:'Күнтізбеге қосу',wishLabel:'БІЗДЕН',program:'КҮН БАҒДАРЛАМАСЫ',programTitle:'Толқыннан толқынға —<br><i>біздің кешке</i>',venue:'ӨТЕТІН ОРНЫ',rsvpTitle:'Бізбен бірге<br><i>боласыз ба?</i>',rsvpText:'Шешіміңізді хабарлаңыз.',nameLabel:'СІЗДІҢ АТЫҢЫЗ',attendLabel:'ТОЙҒА КЕЛЕ АЛАСЫЗ БА?',yes:'Қуана келемін!',no:'Өкінішке қарай, келе алмаймын',countLabel:'ҚОНАҚТАР САНЫ',wishInput:'ТІЛЕК',send:'ҚАТЫСУДЫ РАСТАУ',waiting:'СҮЙІСПЕНШІЛІКПЕН КҮТЕМІЗ',sent:'Рақмет! Жауабыңыз сақталды.',failed:'Жауап сақталмады.',loading:'Сақталуда…',loadError:'Деректер жүктелмеді',retry:'Қайталау',week:['ДС','СС','СР','БС','ЖМ','СБ','ЖС']}
+  ru:{invitation:'ПРИГЛАШЕНИЕ НА СВАДЬБУ',and:'и',scroll:'ЛИСТАЙТЕ ВНИЗ',dear:'ДОРОГИЕ РОДНЫЕ И ДРУЗЬЯ',dateTitle:'НАША ДАТА',addCalendar:'Добавить в календарь',wishLabel:'ОТ НАС',program:'ПРОГРАММА ДНЯ',programTitle:'Волна за волной —<br><i>к нашему вечеру</i>',venue:'МЕСТО ПРОВЕДЕНИЯ',rsvpTitle:'Будете ли вы<br><i>с нами?</i>',rsvpText:'Пожалуйста, сообщите о вашем решении.',nameLabel:'ВАШЕ ИМЯ',attendLabel:'ВЫ СМОЖЕТЕ ПРИЙТИ?',yes:'С радостью буду!',no:'К сожалению, не получится',countLabel:'КОЛИЧЕСТВО ГОСТЕЙ',wishInput:'ПОЖЕЛАНИЕ',send:'ПОДТВЕРДИТЬ ПРИСУТСТВИЕ',waiting:'С ЛЮБОВЬЮ ЖДЁМ ВАС',countdownTitle:'ДО НАШЕЙ СВАДЬБЫ',days:'ДНЕЙ',hours:'ЧАСОВ',minutes:'МИНУТ',seconds:'СЕКУНД',sent:'Спасибо! Ваш ответ сохранён.',failed:'Не удалось сохранить ответ.',loading:'Сохраняем…',loadError:'Не удалось загрузить данные',retry:'Повторить',week:['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']},
+  ky:{invitation:'ҮЙЛӨНҮҮ ТОЮНА ЧАКЫРУУ',and:'жана',scroll:'ТӨМӨН ЖЫЛДЫРЫҢЫЗ',dear:'УРМАТТУУ ТУУГАНДАР ЖАНА ДОСТОР',dateTitle:'БИЗДИН КҮН',addCalendar:'Календарга кошуу',wishLabel:'БИЗДЕН',program:'КҮНДҮН ПРОГРАММАСЫ',programTitle:'Толкун артынан толкун —<br><i>биздин кечке</i>',venue:'ӨТКӨРҮҮ ЖЕРИ',rsvpTitle:'Биз менен<br><i>болосузбу?</i>',rsvpText:'Чечимиңизди билдирип коюңуз.',nameLabel:'АТЫҢЫЗ',attendLabel:'КЕЛЕ АЛАСЫЗБЫ?',yes:'Кубаныч менен келем!',no:'Тилекке каршы, келе албайм',countLabel:'КОНОКТОРДУН САНЫ',wishInput:'КААЛОО-ТИЛЕК',send:'КАТЫШУУНУ ЫРАСТОО',waiting:'СҮЙҮҮ МЕНЕН КҮТӨБҮЗ',countdownTitle:'ҮЙЛӨНҮҮ ТОЮБУЗГА ЧЕЙИН',days:'КҮН',hours:'СААТ',minutes:'МҮНӨТ',seconds:'СЕКУНДА',sent:'Рахмат! Жообуңуз сакталды.',failed:'Жооп сакталган жок.',loading:'Сакталууда…',loadError:'Маалымат жүктөлгөн жок',retry:'Кайталоо',week:['ДШ','ШШ','ШР','БШ','ЖМ','ИШ','ЖК']},
+  kk:{invitation:'ҮЙЛЕНУ ТОЙЫНА ШАҚЫРУ',and:'және',scroll:'ТӨМЕН ЖЫЛЖЫТЫҢЫЗ',dear:'ҚҰРМЕТТІ ТУЫСТАР МЕН ДОСТАР',dateTitle:'БІЗДІҢ КҮН',addCalendar:'Күнтізбеге қосу',wishLabel:'БІЗДЕН',program:'КҮН БАҒДАРЛАМАСЫ',programTitle:'Толқыннан толқынға —<br><i>біздің кешке</i>',venue:'ӨТЕТІН ОРНЫ',rsvpTitle:'Бізбен бірге<br><i>боласыз ба?</i>',rsvpText:'Шешіміңізді хабарлаңыз.',nameLabel:'СІЗДІҢ АТЫҢЫЗ',attendLabel:'ТОЙҒА КЕЛЕ АЛАСЫЗ БА?',yes:'Қуана келемін!',no:'Өкінішке қарай, келе алмаймын',countLabel:'ҚОНАҚТАР САНЫ',wishInput:'ТІЛЕК',send:'ҚАТЫСУДЫ РАСТАУ',waiting:'СҮЙІСПЕНШІЛІКПЕН КҮТЕМІЗ',countdownTitle:'ҮЙЛЕНУ ТОЙЫМЫЗҒА ДЕЙІН',days:'КҮН',hours:'САҒАТ',minutes:'МИНУТ',seconds:'СЕКУНД',sent:'Рақмет! Жауабыңыз сақталды.',failed:'Жауап сақталмады.',loading:'Сақталуда…',loadError:'Деректер жүктелмеді',retry:'Қайталау',week:['ДС','СС','СР','БС','ЖМ','СБ','ЖС']}
 };
 
-let fallback,config,record,id,calendarCursor,observer;
+let fallback,config,record,id,calendarCursor,observer,countdownTimer;
 let language=localStorage.getItem('pearl-wave-language')||'ru';
 const t=key=>copy[language]?.[key]||copy.ru[key]||key;
 const locale=()=>config.locales?.[language]||config.locales?.[config.defaultLanguage]||config.locales?.ru;
@@ -54,7 +54,6 @@ function render(){
   $('#heroDay').textContent=dateText({day:'2-digit'});
   $('#heroMonth').textContent=dateText({month:'long'}).toUpperCase();
   $('#heroYear').textContent=dateText({year:'numeric'});
-  $('#footerDate').textContent=dateText({day:'numeric',month:'long',year:'numeric'});
   const current=locale();
   $('#welcomeTitle').textContent=current.welcomeTitle||t('dear');
   $('#welcomeText').textContent=current.welcome||'';
@@ -67,7 +66,7 @@ function render(){
   const twoGis=validMapUrl(config.map?.twoGisUrl)||(query?`https://2gis.kg/search/${encodeURIComponent(query)}`:'');
   $('.map-buttons').hidden=!(google||twoGis);$('#googleMapLink').hidden=!google;$('#twoGisLink').hidden=!twoGis;$('#googleMapLink').href=google||'#';$('#twoGisLink').href=twoGis||'#';
   $('#rsvp').hidden=config.rsvp?.enabled===false;$('#guestWishField').hidden=config.rsvp?.allowGuestWish===false;
-  configureGuestCount();renderCalendar();observe();
+  configureGuestCount();renderCalendar();startCountdown();observe();
   document.title=`${names.first} & ${names.second} — ${dateText({day:'numeric',month:'long',year:'numeric'})}`;
   $('meta[name="description"]').content=`${current.welcomeTitle||t('invitation')} — ${names.first} & ${names.second}`;
 }
@@ -83,6 +82,18 @@ function renderCalendar(){
 }
 
 function configureGuestCount(){const select=$('#guestCount'),max=config.rsvp?.maxGuests||10;select.replaceChildren(...Array.from({length:max},(_,index)=>Object.assign(document.createElement('option'),{value:String(index+1),textContent:String(index+1)})))}
+function startCountdown(){
+  clearInterval(countdownTimer);
+  const update=()=>{
+    const remaining=Math.max(0,dateObject().getTime()-Date.now());
+    const days=Math.floor(remaining/86400000),hours=Math.floor(remaining/3600000)%24,minutes=Math.floor(remaining/60000)%60,seconds=Math.floor(remaining/1000)%60;
+    $('#countdownDays').textContent=String(days).padStart(3,'0');
+    $('#countdownHours').textContent=String(hours).padStart(2,'0');
+    $('#countdownMinutes').textContent=String(minutes).padStart(2,'0');
+    $('#countdownSeconds').textContent=String(seconds).padStart(2,'0');
+  };
+  update();countdownTimer=setInterval(update,1000);
+}
 function observe(){observer?.disconnect();if(!('IntersectionObserver'in window)){$$('.reveal').forEach(node=>node.classList.add('visible'));return}observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});$$('.reveal:not(.visible)').forEach(node=>observer.observe(node))}
 
 const languageMenu=$('.language-menu'),languageToggle=$('.language-menu__toggle');
