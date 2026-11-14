@@ -1,4 +1,4 @@
-import{invitationIdFromPath,adaptXanoInvitation,createGuestPatch}from'./backend-adapter.js?v=1';
+import{invitationIdFromPath,adaptXanoInvitation,createGuestPatch}from'./backend-adapter.js?v=4';
 
 const $=(selector,root=document)=>root.querySelector(selector);
 const $$=(selector,root=document)=>[...root.querySelectorAll(selector)];
@@ -21,7 +21,7 @@ async function load(){
   id=invitationIdFromPath(location.pathname,fallback.backend.defaultId);
   try{
     if(!id)throw new Error('invalid-id');
-    const response=await fetch(`${fallback.backend.baseUrl}/${id}`,{headers:{Accept:'application/json'},cache:'no-store'});
+    const response=await fetch(`${fallback.backend.baseUrl}/${encodeURIComponent(id)}`,{headers:{Accept:'application/json'},cache:'no-store'});
     if(!response.ok)throw new Error('load-failed');
     record=await response.json();
     config=adaptXanoInvitation(record,fallback);
@@ -111,10 +111,10 @@ $('#rsvpForm').addEventListener('submit',async event=>{
   button.disabled=true;status.textContent=t('loading');
   try{
     if(!record)throw new Error('demo');
-    const latestResponse=await fetch(`${fallback.backend.baseUrl}/${id}`,{cache:'no-store'});if(!latestResponse.ok)throw new Error('latest');
+    const latestResponse=await fetch(`${fallback.backend.baseUrl}/${encodeURIComponent(id)}`,{cache:'no-store'});if(!latestResponse.ok)throw new Error('latest');
     const latest=await latestResponse.json(),body=createGuestPatch(latest,id,guest);
-    const response=await fetch(`${fallback.backend.baseUrl}/${id}/full`,{method:'PATCH',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(body)});if(!response.ok)throw new Error('save');
-    record=body;config=adaptXanoInvitation(record,fallback);status.textContent=t('sent');event.target.reset();$('#guestCountWrap').hidden=false;
+    const response=await fetch(`${fallback.backend.baseUrl}/${encodeURIComponent(id)}/full`,{method:'PATCH',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(body)});if(!response.ok)throw new Error('save');
+    record={...latest,...body,public_id:id};config=adaptXanoInvitation(record,fallback);status.textContent=t('sent');event.target.reset();$('#guestCountWrap').hidden=false;
   }catch{status.textContent=t('failed')}finally{button.disabled=false}
 });
 
