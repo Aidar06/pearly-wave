@@ -1,4 +1,4 @@
-import{invitationIdFromPath,adaptXanoInvitation,createGuestPatch}from'./backend-adapter.js?v=4';
+import{invitationIdFromPath,adaptXanoInvitation}from'./backend-adapter.js?v=4';
 
 const $=(selector,root=document)=>root.querySelector(selector);
 const $$=(selector,root=document)=>[...root.querySelectorAll(selector)];
@@ -107,14 +107,12 @@ $$('input[name="attending"]').forEach(input=>input.addEventListener('change',()=
 $('#rsvpForm').addEventListener('submit',async event=>{
   event.preventDefault();
   const button=$('#submitRsvp'),status=$('#formStatus'),attending=$('input[name="attending"]:checked').value==='yes';
-  const guest={name:$('#guestName').value,wish:$('#guestWish').value,guests_count:attending?Number($('#guestCount').value):0,is_attending:attending};
+  const guest={name:$('#guestName').value.trim(),wish:$('#guestWish').value.trim(),count:attending?Math.max(1,Number($('#guestCount').value)||1):1,attendance:attending};
   button.disabled=true;status.textContent=t('loading');
   try{
     if(!record)throw new Error('demo');
-    const latestResponse=await fetch(`${fallback.backend.baseUrl}/${encodeURIComponent(id)}`,{cache:'no-store'});if(!latestResponse.ok)throw new Error('latest');
-    const latest=await latestResponse.json(),body=createGuestPatch(latest,id,guest);
-    const response=await fetch(`${fallback.backend.baseUrl}/${encodeURIComponent(id)}/full`,{method:'PATCH',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(body)});if(!response.ok)throw new Error('save');
-    record={...latest,...body,public_id:id};config=adaptXanoInvitation(record,fallback);status.textContent=t('sent');event.target.reset();$('#guestCountWrap').hidden=false;
+    const response=await fetch(`${fallback.backend.baseUrl}/${encodeURIComponent(id)}/rsvp`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(guest)});if(!response.ok)throw new Error('save');
+    status.textContent=t('sent');event.target.reset();$('#guestCountWrap').hidden=false;
   }catch{status.textContent=t('failed')}finally{button.disabled=false}
 });
 
